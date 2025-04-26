@@ -1,14 +1,15 @@
 import { TARGET_CURRENCIES, BASE_CURRENCY } from "../../../lib/constants";
+import { API_CONFIG } from "../../../lib/config";
 import { convertToAudBase } from "../../../utils/currency";
 
 const API_KEY = process.env.OPENEXCHANGERATES_API_KEY;
 
 export async function GET() {
   try {
-    const url = new URL("https://openexchangerates.org/api/latest.json");
+    const url = new URL(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.LATEST}`);
 
     url.searchParams.append("app_id", API_KEY);
-    url.searchParams.append("base", "USD");
+    url.searchParams.append("base", API_CONFIG.DEFAULT_PARAMS.BASE);
 
     const response = await fetch(url.toString());
 
