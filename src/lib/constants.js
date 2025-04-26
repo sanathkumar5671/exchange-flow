@@ -4,36 +4,42 @@ export const CURRENCIES = {
     name: "Australian Dollar",
     symbol: "A$",
     flag: "🇦🇺",
+    countryCode: "au",
   },
   USD: {
     code: "USD",
     name: "US Dollar",
     symbol: "$",
     flag: "🇺🇸",
+    countryCode: "us",
   },
   EUR: {
     code: "EUR",
     name: "Euro",
     symbol: "€",
     flag: "🇪🇺",
+    countryCode: "eu",
   },
   INR: {
     code: "INR",
     name: "Indian Rupee",
     symbol: "₹",
     flag: "🇮🇳",
+    countryCode: "in",
   },
   CAD: {
     code: "CAD",
     name: "Canadian Dollar",
     symbol: "C$",
     flag: "🇨🇦",
+    countryCode: "ca",
   },
   NZD: {
     code: "NZD",
     name: "New Zealand Dollar",
     symbol: "NZ$",
     flag: "🇳🇿",
+    countryCode: "nz",
   },
 };
 

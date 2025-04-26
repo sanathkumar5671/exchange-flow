@@ -4,23 +4,65 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-rgb: 245, 245, 245;
+  --background-rgb: 249, 250, 251;
+  --primary-color: 37, 99, 235;
+  --primary-color-light: 239, 246, 255;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Animation for currency selection */
 @keyframes highlight {
-  0% { background-color: rgba(59, 130, 246, 0.1); }
-  50% { background-color: rgba(59, 130, 246, 0.3); }
-  100% { background-color: rgba(59, 130, 246, 0.1); }
+  0% {
+    background-color: rgba(var(--primary-color), 0.1);
+  }
+  50% {
+    background-color: rgba(var(--primary-color), 0.2);
+  }
+  100% {
+    background-color: rgba(var(--primary-color), 0.1);
+  }
 }
 
 .animate-highlight {
-  animation: highlight.3s ease-in-out;
+  animation: highlight 0.6s ease-in-out;
+}
+
+/* Custom rounded styles */
+.rounded-currency {
+  border-radius: 14px;
+}
+
+/* Enhanced shadows */
+.shadow-custom {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Transitions */
+.transition-all-fast {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Flag styles */
+.flag-icon-container {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.fi {
+  transform: scale(1.6);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
