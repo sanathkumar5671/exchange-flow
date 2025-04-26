@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Exchange Flow
+
+A Next.js application for converting Australian Dollars (AUD) to major world currencies with historical exchange rate visualization.
+
+## Features
+
+- Convert AUD to USD, EUR, INR, CAD, and NZD
+- Real-time currency conversion
+- 14-day historical exchange rate charts
+- Responsive design for mobile and desktop
+- Server-side API key protection
+
+## Tech Stack
+
+- **Frontend**: Next.js with React
+- **Styling**: Tailwind CSS
+- **Charts**: Chart.js with react-chartjs-2
+- **API**: OpenExchangeRates
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18.x or later
+- npm or yarn
+
+### Installation and Development
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/sanathkumar5671/exchange-flow.git
+   cd currency-converter
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+### Building for Production
 
 ```bash
-npm run dev
+npm run build
+npm run start
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn build
+yarn start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Docker Deployment
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Build and run the Docker container:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Build the image
+docker build -t currency-converter .
 
-## Learn More
+# Run the container
+docker run -p 3000:3000 currency-converter
+```
 
-To learn more about Next.js, take a look at the following resources:
+Alternatively, use Docker Compose:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+docker-compose up
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## API Routes
 
-## Deploy on Vercel
+- **/api/rates**: Fetches the latest exchange rates for AUD to target currencies
+- **/api/historical?currency=XXX**: Fetches the 14-day historical rates for a specific currency
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
