@@ -80,7 +80,3 @@ docker-compose up
 
 - **/api/rates**: Fetches the latest exchange rates for AUD to target currencies
 - **/api/historical?currency=XXX**: Fetches the 14-day historical rates for a specific currency
-
-## License
-
-MIT

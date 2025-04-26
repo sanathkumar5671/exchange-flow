@@ -1,4 +1,3 @@
-// lib/constants.js
 export const CURRENCIES = {
     AUD: {
       code: "AUD",
