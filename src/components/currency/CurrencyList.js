@@ -12,13 +12,12 @@ export default function CurrencyList({
     <div>
       {items.map((currencyCode, index) => {
         const currency = CURRENCIES[currencyCode];
-        const value = values[currencyCode];
-        const rate = value / baseAmount;
+        const value = values[currencyCode] ?? 0;
+        const rate = baseAmount !== 0 ? value / baseAmount : 0;
 
         return (
           <div
             key={currencyCode}
-            className={index < items.length - 1 ? "mb-10" : ""}
           >
             <CurrencyItem
               currency={currency}

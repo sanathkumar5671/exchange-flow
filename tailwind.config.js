@@ -27,6 +27,25 @@ module.exports = {
       boxShadow: {
         card: "0 2px 10px rgba(0, 0, 0, 0.05)",
       },
+      keyframes: {
+        flipNumber: {
+          '0%': { 
+            transform: 'rotateX(0deg)',
+            opacity: 1 
+          },
+          '50%': { 
+            transform: 'rotateX(90deg)',
+            opacity: 0.2 
+          },
+          '100%': { 
+            transform: 'rotateX(0deg)',
+            opacity: 1 
+          }
+        }
+      },
+      animation: {
+        'number-flip': 'flipNumber 0.4s ease-in-out'
+      }
     },
   },
   plugins: [],
