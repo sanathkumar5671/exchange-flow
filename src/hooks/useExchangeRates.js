@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { fetchLatestRates, fetchHistoricalRates } from "../lib/utils";
+import { fetchLatestRates, fetchHistoricalRates } from "../lib/api";
 import { TARGET_CURRENCIES, BASE_CURRENCY } from "../lib/constants";
 
 export function useExchangeRates() {
@@ -8,7 +8,7 @@ export function useExchangeRates() {
   const [rates, setRates] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedCurrency, setSelectedCurrency] = useState(null);
+  const [selectedCurrency, setSelectedCurrency] = useState("USD");
   const [historicalData, setHistoricalData] = useState(null);
   const [isHistoricalLoading, setIsHistoricalLoading] = useState(false);
 
@@ -75,10 +75,10 @@ export function useExchangeRates() {
     return convertAmount(amount);
   }, [amount, convertAmount]);
 
-  // Fetch the latest rates when the component mounts
   useEffect(() => {
     fetchRates();
-  }, [fetchRates]);
+    fetchHistorical("USD");
+  }, [fetchRates, fetchHistorical]);
 
   return {
     amount,
@@ -91,6 +91,5 @@ export function useExchangeRates() {
     historicalData,
     isHistoricalLoading,
     convertedAmounts,
-    baseCurrency: BASE_CURRENCY,
   };
 }
