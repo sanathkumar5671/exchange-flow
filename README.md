@@ -27,12 +27,14 @@ A Next.js application for converting Australian Dollars (AUD) to major world cur
 ### Installation and Development
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/sanathkumar5671/exchange-flow.git
    cd currency-converter
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    # or
@@ -40,6 +42,7 @@ A Next.js application for converting Australian Dollars (AUD) to major world cur
    ```
 
 3. Run the development server:
+
    ```bash
    npm run dev
    # or
@@ -60,21 +63,52 @@ yarn start
 
 ### Docker Deployment
 
-Build and run the Docker container:
+1. Create a `.env` file in the root directory:
 
-```bash
-# Build the image
-docker build -t currency-converter .
+   ```env
+   OPENEXCHANGERATES_API_KEY=your_api_key_here
+   ```
 
-# Run the container
-docker run -p 3000:3000 currency-converter
-```
+2. Using Docker Compose (Recommended):
 
-Alternatively, use Docker Compose:
+   ```bash
+   # Build and start in production mode
+   docker-compose up --build
 
-```bash
-docker-compose up
-```
+   # Run in detached mode
+   docker-compose up -d
+
+   # Development mode with hot reloading
+   docker-compose -f docker-compose.dev.yml up
+
+   # Stop containers
+   docker-compose down
+   ```
+
+3. Using Docker directly:
+
+   ```bash
+   # Build the image
+   docker build -t exchange-flow .
+
+   # Run the container
+   docker run -p 3000:3000 -e OPENEXCHANGERATES_API_KEY=71a953462be945ca92da5c8932cb3d66 exchange-flow
+   ```
+
+4. Using npm scripts:
+
+   ```bash
+   # Start development environment
+   npm run docker:dev
+
+   # Start production environment
+   npm run docker:prod
+
+   # Stop containers
+   npm run docker:stop
+   ```
+
+The application will be available at [http://localhost:3000](http://localhost:3000).
 
 ## API Routes
 
