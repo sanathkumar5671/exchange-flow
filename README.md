@@ -2,6 +2,10 @@
 
 A Next.js application for converting Australian Dollars (AUD) to major world currencies with historical exchange rate visualization.
 
+## Live Demo
+
+The application is hosted on Vercel and can be accessed at [https://exchange-flow-seven.vercel.app/](https://exchange-flow-seven.vercel.app/)
+
 ## Features
 
 - Convert AUD to USD, EUR, INR, CAD, and NZD
