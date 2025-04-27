@@ -84,9 +84,9 @@ export default function ExchangeChart({ historicalData, baseCurrency }) {
   };
 
   return (
-    <div className="p-6 border rounded-2xl shadow-lg bg-gradient-to-br from-blue-50 to-white w-full h-[530px] flex items-center justify-center">
+    <div className="border rounded-2xl shadow-lg bg-gradient-to-br from-blue-50 to-white w-full h-full p-2">
       <div className="w-full h-full">
-        <Line data={chartData} options={options} height={500} />
+        <Line data={chartData} options={options} />
       </div>
     </div>
   );

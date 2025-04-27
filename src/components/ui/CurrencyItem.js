@@ -19,11 +19,13 @@ export default function CurrencyItem({
   return (
     <div
       className={`my-2 bg-gray-100 rounded-xl shadow-sm border border-gray-200 p-5 transition-shadow duration-200 ease-in-out hover:shadow-lg hover:border-blue-200 ${
-        isSelected ? "ring-2 ring-blue-400 border-blue-400" : ""
+        isSelected
+          ? "ring-1 ring-blue-400 border-blue-400 border-l-2 border-l-blue-500"
+          : ""
       }`}
     >
       <div className="flex justify-between items-center">
-        <div className="flex items-center pl-2">
+        <div className="flex items-center">
           <CurrencyFlag countryCode={currency.countryCode} />
           <div className="ml-2 font-semibold text-gray-800 text-lg tracking-wide">
             {currency.code}

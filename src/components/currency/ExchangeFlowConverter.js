@@ -71,17 +71,17 @@ export default function ExchangeFlowConverter() {
     selectCurrency(currencyCode);
   };
   return (
-    <div className="min-h-screen w-full bg-gray-50 flex flex-col p-0 m-0">
-      <div className="w-full px-0 md:px-16 py-8">
-        <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+    <div className="h-screen w-full bg-gray-50 flex flex-col p-0 m-0">
+      <div className="w-full px-0 md:px-16 py-4 flex flex-col h-full">
+        <div className="mb-4 text-center">
+          <h1 className="text-2xl font-bold text-gray-800 mb-1">
             Exchange Flow Converter
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm">
             Convert {CURRENCIES[BASE_CURRENCY].name}s to major world currencies
           </p>
         </div>
-        <div className="w-full mb-8">
+        <div className="w-full mb-4">
           <Input
             id="amountInput"
             value={amount}
@@ -93,12 +93,12 @@ export default function ExchangeFlowConverter() {
           />
         </div>
         {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
-            <p className="text-red-600">{error}</p>
+          <div className="mb-2 p-2 bg-red-50 border border-red-200 rounded-md">
+            <p className="text-red-600 text-sm">{error}</p>
           </div>
         )}
-        <div className="flex flex-col md:flex-row gap-8 w-full h-[70vh]">
-          <div className="w-full md:w-1/3 h-full overflow-y-auto pr-2">
+        <div className="flex flex-1 flex-col md:flex-row gap-2 w-full h-full">
+          <div className="w-full md:w-1/3 h-full min-h-0 overflow-auto pr-2 flex-shrink-0">
             {isLoading ? (
               <LoadingState type="table" rows={5} />
             ) : (
@@ -112,9 +112,9 @@ export default function ExchangeFlowConverter() {
               />
             )}
           </div>
-          <div className="w-full md:w-2/3 h-full flex items-center justify-center bg-white rounded-xl shadow border border-gray-200">
+          <div className="w-full md:w-2/3 h-full min-h-0 bg-white rounded-xl shadow border border-gray-200 overflow-hidden">
             {isHistoricalLoading ? (
-              <div className="flex items-center justify-center h-64 w-full">
+              <div className="flex items-center justify-center h-full w-full">
                 <LoadingState rows={3} />
               </div>
             ) : historicalData ? (
