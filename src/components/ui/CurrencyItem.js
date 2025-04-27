@@ -20,7 +20,7 @@ export default function CurrencyItem({ currency, value, rate, baseCurrency }) {
         </div>
 
         <div className="flex flex-col items-end w-2/3 pr-2">
-          <div className="text-xl font-bold text-gray-900">
+          <div className="font-bold text-gray-900 text-lg md:text-xl max-w-full overflow-x-auto break-all whitespace-nowrap">
             <span key={animateKey} className="inline-block animate-number-flip">
               {currency.symbol} {value.toFixed(2)}
             </span>
