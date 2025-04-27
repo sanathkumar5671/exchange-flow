@@ -81,14 +81,16 @@ export default function ExchangeFlowConverter() {
       className="md:hidden"
     >
       {isHistoricalLoading ? (
-        <div className="flex items-center justify-center h-full w-full">
+        <div className="flex items-center justify-center h-full w-full p-8">
           <LoadingState rows={3} />
         </div>
       ) : historicalData ? (
-        <ExchangeChart
-          historicalData={historicalData}
-          baseCurrency={BASE_CURRENCY}
-        />
+        <div className="h-full overflow-x-auto bg-gradient-to-br from-blue-50 to-white rounded-b-2xl">
+          <ExchangeChart
+            historicalData={historicalData}
+            baseCurrency={BASE_CURRENCY}
+          />
+        </div>
       ) : null}
     </Modal>
   );

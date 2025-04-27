@@ -10,18 +10,19 @@ export default function Modal({
   return (
     <div className={`fixed inset-0 z-50 ${isOpen ? "block" : "hidden"}`}>
       <div
-        className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4"
+        className="absolute inset-0 bg-black/30 flex items-center justify-center p-4"
         onClick={onClose}
       >
         <div
-          className={`bg-white rounded-xl shadow-lg flex flex-col w-[95%] md:w-[90%] max-w-4xl h-[90vh] ${className}`}
+          className={`bg-white w-[90%] max-w-2xl rounded-2xl shadow-xl flex flex-col ${className}`}
+          style={{ height: "min(90vh, 800px)" }}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="p-4 border-b border-gray-200 flex justify-between items-center">
-            <h3 className="font-semibold text-lg">{title}</h3>
+          <div className="p-4 border-b border-gray-200 flex justify-between items-center bg-white sticky top-0 z-10 rounded-t-2xl">
+            <h3 className="font-semibold text-xl text-gray-800">{title}</h3>
             <button
               onClick={onClose}
-              className="text-gray-500 hover:bg-gray-100 p-1.5 rounded-full transition-colors"
+              className="text-gray-500 hover:bg-gray-100 p-2 rounded-full transition-colors duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +40,7 @@ export default function Modal({
               </svg>
             </button>
           </div>
-          <div className="flex-1 overflow-auto p-4">{children}</div>
+          <div className="flex-1 overflow-auto rounded-b-2xl">{children}</div>
         </div>
       </div>
     </div>

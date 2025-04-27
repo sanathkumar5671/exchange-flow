@@ -55,12 +55,22 @@ export default function ExchangeChart({ historicalData, baseCurrency }) {
       legend: {
         position: "top",
         align: "start",
+        labels: {
+          boxWidth: 12,
+          font: {
+            size: 11,
+          },
+        },
       },
       title: {
         display: true,
         text: `14-Day Historical Rates: ${baseCurrency} to ${currency}`,
         font: {
-          size: 16,
+          size: 14,
+        },
+        padding: {
+          top: 10,
+          bottom: 10,
         },
       },
       tooltip: {
@@ -78,14 +88,26 @@ export default function ExchangeChart({ historicalData, baseCurrency }) {
           callback: function (value) {
             return value.toFixed(4);
           },
+          font: {
+            size: 11,
+          },
+        },
+      },
+      x: {
+        ticks: {
+          maxRotation: 45,
+          minRotation: 45,
+          font: {
+            size: 11,
+          },
         },
       },
     },
   };
 
   return (
-    <div className="border rounded-2xl shadow-lg bg-gradient-to-br from-blue-50 to-white w-full h-full p-2">
-      <div className="w-full h-full">
+    <div className="w-full h-full min-w-[500px] bg-gradient-to-br from-blue-50 to-white rounded-2xl">
+      <div className="w-full h-full p-2">
         <Line data={chartData} options={options} />
       </div>
     </div>
