@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useExchangeRates } from "../../hooks/useExchangeRates";
 import CurrencyList from "./CurrencyList";
 import Input from "../ui/Input";
@@ -11,8 +11,10 @@ import {
 } from "../../lib/constants";
 import "flag-icons/css/flag-icons.min.css";
 import ExchangeChart from "./ExchangeChart";
+import Modal from "../ui/Modal";
 
 export default function ExchangeFlowConverter() {
+  const [isChartModalOpen, setIsChartModalOpen] = useState(false);
   const {
     amount,
     setAmount,
@@ -70,8 +72,30 @@ export default function ExchangeFlowConverter() {
   const handleSelectCurrency = (currencyCode) => {
     selectCurrency(currencyCode);
   };
+
+  const ChartModal = () => (
+    <Modal
+      isOpen={isChartModalOpen}
+      onClose={() => setIsChartModalOpen(false)}
+      title="Exchange Rate Chart"
+      className="md:hidden"
+    >
+      {isHistoricalLoading ? (
+        <div className="flex items-center justify-center h-full w-full">
+          <LoadingState rows={3} />
+        </div>
+      ) : historicalData ? (
+        <ExchangeChart
+          historicalData={historicalData}
+          baseCurrency={BASE_CURRENCY}
+        />
+      ) : null}
+    </Modal>
+  );
+
   return (
     <div className="h-screen w-full bg-gray-50 flex flex-col p-0 m-0">
+      <ChartModal />
       <div className="w-full px-0 md:px-16 py-4 flex flex-col h-full">
         <div className="mb-4 text-center">
           <h1 className="text-2xl font-bold text-gray-800 mb-1">
@@ -112,7 +136,7 @@ export default function ExchangeFlowConverter() {
               />
             )}
           </div>
-          <div className="w-full md:w-2/3 h-full min-h-0 bg-white rounded-xl shadow border border-gray-200 overflow-hidden">
+          <div className="hidden md:block w-full md:w-2/3 h-full min-h-0 bg-white rounded-xl shadow border border-gray-200 overflow-hidden">
             {isHistoricalLoading ? (
               <div className="flex items-center justify-center h-full w-full">
                 <LoadingState rows={3} />
@@ -124,6 +148,25 @@ export default function ExchangeFlowConverter() {
               />
             ) : null}
           </div>
+          <button
+            onClick={() => setIsChartModalOpen(true)}
+            className="md:hidden fixed bottom-4 right-4 bg-blue-600 text-white rounded-full p-4 shadow-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
