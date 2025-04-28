@@ -118,3 +118,17 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 - **/api/rates**: Fetches the latest exchange rates for AUD to target currencies
 - **/api/historical?currency=XXX**: Fetches the 14-day historical rates for a specific currency
+
+## Screenshot of the Application
+### Web version of the app
+
+![Screenshot 2025-04-28 084019](https://github.com/user-attachments/assets/b3801e9d-7e68-480f-8651-95d588d97773)
+
+### Mobile version of the app
+
+![Screenshot 2025-04-28 084043](https://github.com/user-attachments/assets/93e4561b-ff89-4089-ac7c-a389e6c934a0) ![Screenshot 2025-04-28 084057](https://github.com/user-attachments/assets/8fdaf8b8-fce9-4e0e-9185-afcac619b9ce)
+
+
+
+
+
